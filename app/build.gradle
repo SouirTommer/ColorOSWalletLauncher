@@ -2,9 +2,26 @@ plugins {
     id 'com.android.application'
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+
 android {
     namespace 'com.heytap.wallet'
     compileSdk 34
+
+    signingConfigs {
+        if (localProperties.containsKey('RELEASE_STORE_FILE')) {
+            release {
+                storeFile file("${rootProject.projectDir}/${localProperties['RELEASE_STORE_FILE']}")
+                storePassword localProperties['RELEASE_STORE_PASSWORD']
+                keyAlias localProperties['RELEASE_KEY_ALIAS']
+                keyPassword localProperties['RELEASE_KEY_PASSWORD']
+            }
+        }
+    }
 
     defaultConfig {
         applicationId "com.heytap.wallet"
@@ -16,6 +33,9 @@ android {
 
     buildTypes {
         release {
+            if (localProperties.containsKey('RELEASE_STORE_FILE')) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
