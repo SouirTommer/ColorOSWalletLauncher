@@ -4,8 +4,8 @@
         android:shortcutId="settings"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_preferences"
-        android:shortcutShortLabel="@string/app_name"
-        android:shortcutLongLabel="@string/app_name">
+        android:shortcutShortLabel="@string/settings"
+        android:shortcutLongLabel="@string/settings">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.heytap.wallet"
