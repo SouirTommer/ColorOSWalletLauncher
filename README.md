@@ -1,10 +1,11 @@
 # ColorOSWalletLauncher
 
-A shim app that lets you use Google Wallet with ColorOS's double-press-power NFC gesture.
+<img width="367" height="800" alt="7f5338e3-0a2a-484c-8354-987bfe2643ab" src="https://github.com/user-attachments/assets/bebb95d0-a1a7-4710-9d78-c225b2fd30d9" /> <br>
+A shim app that lets you use Google Wallet with ColorOS's **double-press-power** NFC gesture.
 
 ## Why
 
-ColorOS hard-codes the double-press-power-button gesture to 4 packages. One of them is `com.heytap.wallet` (OPPO's own wallet), which isn't installed on most phones. Google Wallet is not in the list, so you can't assign it to the gesture.
+ColorOS **hard-codes** the double-press-power-button gesture to 4 packages. One of them is `com.heytap.wallet` (OPPO's own wallet), which isn't installed on most phones. **Google Wallet is not in the list, so you can't assign it to the gesture**.
 
 The fix: a tiny app that takes the empty `com.heytap.wallet` package name and just forwards to Google Wallet. ColorOS then accepts it and lets you pick it in Settings.
 
